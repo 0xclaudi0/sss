@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header-bar">
+        <h2>Welcome to Mental Tracker</h2>
+        <div class="user-info">
+          <span id="username-display"></span>
+          <img src="https://ui-avatars.com/api/?name=User&background=4c6ef5&color=fff&size=32" alt="User Avatar" class="avatar">
+          <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+      </div>
+      
+
+    <div style="margin-top: 1.5rem;">
+      <button onclick="showSection('mood-section')">Mood Tracking</button>
+      <button onclick="showSection('assessment-section')">Self-Assessment</button>
+      <button onclick="showSection('journal-section')">Journal</button>
+      <button onclick="showSection('coping-section')">Coping Strategies</button>
+    </div>
+
+    <!-- Mood Tracking Section -->
+    <div class="section" id="mood-section">
+        <h4>Your Mood Chart</h4>
+<canvas id="moodChart" height="150"></canvas>
+      <h3>Daily Mood Tracking</h3>
+      <select id="mood-select">
+        <option value="">Select your mood</option>
+        <option>😄 Happy</option>
+        <option>😐 Neutral</option>
+        <option>😔 Sad</option>
+        <option>😠 Angry</option>
+        <option>😰 Anxious</option>
+      </select>
+      <button onclick="saveMood()">Save Mood</button>
+      <h4>History</h4>
+      <div id="mood-history"></div>
+    </div>
+
+    <!-- Self Assessment Section -->
+    <div class="section hidden" id="assessment-section">
+      <h3>Mental Health Self-Assessment</h3>
+      <label>Stress Level (1-10)</label>
+      <input type="number" id="stress" min="1" max="10" />
+      <label>Sleep Quality (1-10)</label>
+      <input type="number" id="sleep" min="1" max="10" />
+      <label>Energy Level (1-10)</label>
+      <input type="number" id="energy" min="1" max="10" />
+      <button onclick="saveAssessment()">Save Assessment</button>
+      <div id="assessment-results"></div>
+    </div>
+
+    <!-- Journal Section -->
+    <div class="section hidden" id="journal-section">
+      <h3>Journal</h3>
+      <textarea id="journal-entry" rows="4" placeholder="Write your thoughts..."></textarea>
+      <button onclick="saveJournal()">Save Entry</button>
+      <h4>Past Entries</h4>
+      <div id="journal-history"></div>
+    </div>
+
+    <!-- Coping Strategies Section -->
+    <div class="section hidden" id="coping-section">
+      <h3>Coping Strategies & Exercises</h3>
+      <ul>
+        <li>🧘‍♂️ Deep Breathing for 5 minutes</li>
+        <li>📝 Write 3 things you're grateful for</li>
+        <li>🚶‍♀️ Take a 10-minute walk</li>
+        <li>🎧 Listen to your favorite calming music</li>
+        <li>📵 Unplug from social media for an hour</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
